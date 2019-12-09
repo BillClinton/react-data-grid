@@ -1,0 +1,189 @@
+@import '../../../sass/_variables';
+
+$headerBg: #eee;
+
+$gridMarginX: 12px;
+$gridMarginY: 20px;
+$gridHeaderHeight: 32px;
+$gridFooterHeight: 12px;
+$gridMarginHeight: $gridMarginY * 2;
+$gridHeight: calc(#{$content-height} - #{$gridMarginHeight} - 4px);
+$gridBodyHeight: calc(
+  #{$gridHeight} - #{$gridHeaderHeight} - #{$gridFooterHeight}
+);
+
+.grid {
+  margin: $gridMarginY $gridMarginX;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  max-height: $gridHeight;
+
+  div.gridHeader {
+    display: grid;
+    height: $gridHeaderHeight;
+    grid-template-columns: repeat(12, 1fr [col-start]);
+
+    div.gridHeaderCell {
+      box-sizing: border-box;
+      padding: 6px 6px;
+      background-color: $headerBg;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0)
+      );
+    }
+  }
+
+  div.gridFooter {
+    height: $gridFooterHeight;
+    background-color: $headerBg;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0)
+    );
+  }
+
+  div.gridBody {
+    height: $gridBodyHeight;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    //align-items: stretch;
+
+    div.card {
+      display: block;
+      background-color: $headerBg;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.6)
+      );
+      position: relative;
+
+      div.close {
+        position: absolute;
+        top: 0.5em;
+        right: 0.5em;
+        width: 24px;
+        height: 24px;
+        color: darken($headerBg, 10%);
+
+        &:hover {
+          color: darken($headerBg, 20%);
+        }
+      }
+    }
+
+    div.cardOpen {
+      height: 300px;
+      transition: all 400ms;
+    }
+
+    div.cardClosed {
+      transition: all 400ms;
+      height: 0px;
+    }
+
+    div.gridDataWrap {
+      height: $gridBodyHeight;
+      display: block;
+      flex: auto;
+      overflow-y: scroll;
+      transition: all 400ms;
+
+      div.gridData {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr [col-start]);
+
+        div.gridDataCell {
+          background-color: #fff;
+          padding: 6px 6px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        div.colSelected {
+          background-color: bisque;
+        }
+      }
+    }
+    div.gridDataWrapShrink {
+      //height: calc(#{$gridBodyHeight} / 2);
+      transition: all 400ms;
+    }
+  }
+
+  .colStart1 {
+    grid-column-start: 1;
+  }
+  .colStart2 {
+    grid-column-start: 2;
+  }
+  .colStart3 {
+    grid-column-start: 3;
+  }
+  .colStart4 {
+    grid-column-start: 4;
+  }
+  .colStart5 {
+    grid-column-start: 5;
+  }
+  .colStart6 {
+    grid-column-start: 6;
+  }
+  .colStart7 {
+    grid-column-start: 7;
+  }
+  .colStart8 {
+    grid-column-start: 8;
+  }
+  .colStart9 {
+    grid-column-start: 9;
+  }
+  .colStart10 {
+    grid-column-start: 10;
+  }
+  .colStart11 {
+    grid-column-start: 11;
+  }
+
+  .colSpan1 {
+    grid-column-end: span 1;
+  }
+  .colSpan2 {
+    grid-column-end: span 2;
+  }
+  .colSpan3 {
+    grid-column-end: span 3;
+  }
+  .colSpan4 {
+    grid-column-end: span 4;
+  }
+  .colSpan5 {
+    grid-column-end: span 5;
+  }
+  .colSpan6 {
+    grid-column-end: span 6;
+  }
+  .colSpan7 {
+    grid-column-end: span 7;
+  }
+  .colSpan8 {
+    grid-column-end: span 8;
+  }
+  .colSpan9 {
+    grid-column-end: span 9;
+  }
+  .colSpan10 {
+    grid-column-end: span 10;
+  }
+  .colSpan11 {
+    grid-column-end: span 11;
+  }
+}
