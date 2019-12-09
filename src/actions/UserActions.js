@@ -1,4 +1,4 @@
-import API from '../apis/API';
+import API from '../api/API';
 
 import { CREATE_USER, READ_USERS, UPDATE_USER, DESTROY_USER } from './types';
 
@@ -11,21 +11,6 @@ export const createUser = (formValues, dispatch) => {
         type: CREATE_USER,
         payload: response.data
       });
-    })
-    .catch(e => {
-      console.log(e);
-    });
-};
-
-export const readUser = (id, dispatch) => {
-  const getData = async () => await API.get(`/users/${id}`);
-  getData()
-    .then(response => {
-      dispatch({
-        type: READ_USER,
-        payload: response.data
-      });
-      console.log(response.data);
     })
     .catch(e => {
       console.log(e);
@@ -59,7 +44,7 @@ export const updateUser = (id, formValues, dispatch) => {
     });
 };
 
-export const deleteUser = (id, dispatch) => {
+export const destroyUser = (id, dispatch) => {
   const deleteData = async () => await API.delete(`/users/${id}`);
 
   deleteData().then(response => {
