@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { GridContext } from './DataGrid';
-import { ReactComponent as CloseIcon } from '../../icons/times-circle-solid.svg';
+import { ReactComponent as CloseIcon } from './icons/times-circle-solid.svg';
 
 const GridCard = ({ content }) => {
   const { styles, selectedIndex, setSelectedIndex } = useContext(GridContext);

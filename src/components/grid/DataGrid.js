@@ -2,7 +2,7 @@ import React, { createContext, useState } from 'react';
 
 import Header from './GridHeaderRow';
 import DataRows from './GridDataRows';
-import styles from './DataGrid.module.scss';
+import styles from './sass/DataGrid.module.scss';
 import GridCard from './GridCard';
 
 export const GridContext = createContext();
