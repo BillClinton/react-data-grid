@@ -12,7 +12,7 @@ const UserGrid = () => {
         {
           text: 'Name',
           dataIndex: 'name',
-          span: 4
+          span: 3
         },
         {
           text: 'Email',
@@ -22,7 +22,12 @@ const UserGrid = () => {
         {
           text: 'Company',
           dataIndex: 'company.name',
-          span: 4
+          span: 3
+        },
+        {
+          text: 'City',
+          dataIndex: 'address.city',
+          span: 2
         }
       ]}
     >
