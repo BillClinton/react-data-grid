@@ -31,6 +31,18 @@ const GridDataRow = ({ rec, idx }) => {
     );
   };
 
+  const getFieldValue = dataIndex => {
+    let target = rec;
+    let indexArray = dataIndex.split('.');
+
+    while (indexArray.length > 1) {
+      target = rec[indexArray[0]];
+      indexArray.shift();
+    }
+
+    return target[indexArray[0]];
+  };
+
   const renderDataColumns = () => {
     let columnStartIndex = 1;
     let dataCols = [];
@@ -38,7 +50,11 @@ const GridDataRow = ({ rec, idx }) => {
     // add columns and increment starting index by the span
     columns.forEach(col => {
       dataCols.push(
-        renderDataColumn(rec[col.dataIndex], columnStartIndex, col.span)
+        renderDataColumn(
+          getFieldValue(col.dataIndex),
+          columnStartIndex,
+          col.span
+        )
       );
       columnStartIndex += col.span;
     });
