@@ -1,23 +1,27 @@
 {
   "files": {
-    "main.css": "/react-data-grid/static/css/main.9891bfda.chunk.css",
-    "main.js": "/react-data-grid/static/js/main.1abb4b7f.chunk.js",
-    "main.js.map": "/react-data-grid/static/js/main.1abb4b7f.chunk.js.map",
+    "main.css": "/react-data-grid/static/css/main.3ecd95db.chunk.css",
+    "main.js": "/react-data-grid/static/js/main.acf5f0a4.chunk.js",
+    "main.js.map": "/react-data-grid/static/js/main.acf5f0a4.chunk.js.map",
     "runtime-main.js": "/react-data-grid/static/js/runtime-main.24eb5240.js",
     "runtime-main.js.map": "/react-data-grid/static/js/runtime-main.24eb5240.js.map",
-    "static/js/2.706d38eb.chunk.js": "/react-data-grid/static/js/2.706d38eb.chunk.js",
-    "static/js/2.706d38eb.chunk.js.map": "/react-data-grid/static/js/2.706d38eb.chunk.js.map",
+    "static/js/2.72000b1f.chunk.js": "/react-data-grid/static/js/2.72000b1f.chunk.js",
+    "static/js/2.72000b1f.chunk.js.map": "/react-data-grid/static/js/2.72000b1f.chunk.js.map",
     "index.html": "/react-data-grid/index.html",
-    "precache-manifest.d6cd6174ff1ca1d834722094325e5cee.js": "/react-data-grid/precache-manifest.d6cd6174ff1ca1d834722094325e5cee.js",
+    "precache-manifest.f7929f12fc4b07a06f470864bd63a89a.js": "/react-data-grid/precache-manifest.f7929f12fc4b07a06f470864bd63a89a.js",
     "service-worker.js": "/react-data-grid/service-worker.js",
-    "static/css/main.9891bfda.chunk.css.map": "/react-data-grid/static/css/main.9891bfda.chunk.css.map",
-    "static/js/2.706d38eb.chunk.js.LICENSE": "/react-data-grid/static/js/2.706d38eb.chunk.js.LICENSE",
+    "static/css/main.3ecd95db.chunk.css.map": "/react-data-grid/static/css/main.3ecd95db.chunk.css.map",
+    "static/js/2.72000b1f.chunk.js.LICENSE": "/react-data-grid/static/js/2.72000b1f.chunk.js.LICENSE",
+    "static/media/ellipsis-v-solid.c8c287db.svg": "/react-data-grid/static/media/ellipsis-v-solid.c8c287db.svg",
+    "static/media/minus-circle-solid.da296998.svg": "/react-data-grid/static/media/minus-circle-solid.da296998.svg",
+    "static/media/pen-square-solid.84d63387.svg": "/react-data-grid/static/media/pen-square-solid.84d63387.svg",
+    "static/media/sync-alt-solid.b1b03f76.svg": "/react-data-grid/static/media/sync-alt-solid.b1b03f76.svg",
     "static/media/times-circle-solid.bb7daa97.svg": "/react-data-grid/static/media/times-circle-solid.bb7daa97.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.24eb5240.js",
-    "static/js/2.706d38eb.chunk.js",
-    "static/css/main.9891bfda.chunk.css",
-    "static/js/main.1abb4b7f.chunk.js"
+    "static/js/2.72000b1f.chunk.js",
+    "static/css/main.3ecd95db.chunk.css",
+    "static/js/main.acf5f0a4.chunk.js"
   ]
 }
