@@ -46,7 +46,7 @@ const GridHeaderRow = () => {
     }
 
     // add refresh button
-    headerCols.push(<RefreshButton />);
+    headerCols.push(<RefreshButton key="refresh-button" />);
 
     return headerCols;
   };

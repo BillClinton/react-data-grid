@@ -76,7 +76,7 @@ const GridDataRow = ({ rec, idx }) => {
     }
 
     // add the action column
-    dataCols.push(<ActionColumn idx={idx} />);
+    dataCols.push(<ActionColumn idx={idx} key="action-column" />);
 
     return dataCols;
   };
