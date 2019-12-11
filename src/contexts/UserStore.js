@@ -10,7 +10,8 @@ import {
 export const UserStore = createContext();
 
 const initialState = {
-  users: []
+  users: [],
+  isLoading: false
 };
 
 const UserStoreProvider = props => {
@@ -24,6 +25,7 @@ const UserStoreProvider = props => {
 
   const store = {
     data: state.users,
+    isLoading: state.isLoading,
     create,
     read,
     update,

@@ -2,10 +2,12 @@ import {
   CREATE_USER,
   READ_USERS,
   UPDATE_USER,
-  DESTROY_USER
+  DESTROY_USER,
+  SET_LOADING
 } from '../actions/types';
 
 export default (state = {}, action) => {
+  console.log('reducer!!!!', action.payload);
   switch (action.type) {
     case CREATE_USER: {
       return {
@@ -31,8 +33,16 @@ export default (state = {}, action) => {
     }
 
     case DESTROY_USER: {
-      const users = state.users.filter(apt => apt._id !== action.payload);
-      return { ...state, users: users };
+      const users = state.users;
+      const idx = action.payload;
+      const filtered = users
+        .slice(0, idx)
+        .concat(users.slice(idx + 1, users.length));
+      return { ...state, users: filtered };
+    }
+
+    case SET_LOADING: {
+      return { ...state, isLoading: action.payload };
     }
 
     default:
