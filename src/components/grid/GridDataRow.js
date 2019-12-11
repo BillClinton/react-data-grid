@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { GridContext } from './DataGrid';
+import ActionColumn from './ActionColumn';
 
 const GridDataRow = ({ rec, idx }) => {
   const { columns, styles, selectedIndex, setSelectedIndex } = useContext(
@@ -49,21 +50,33 @@ const GridDataRow = ({ rec, idx }) => {
 
     // add columns and increment starting index by the span
     columns.forEach(col => {
-      dataCols.push(
-        renderDataColumn(
-          getFieldValue(col.dataIndex),
-          columnStartIndex,
-          col.span
-        )
-      );
+      if (columnStartIndex < 13) {
+        let colSpan = col.span;
+
+        // if cell would overflow available columns, reduce the colspan
+        if (colSpan + columnStartIndex > 13) {
+          colSpan = 13 - columnStartIndex;
+        }
+
+        dataCols.push(
+          renderDataColumn(
+            getFieldValue(col.dataIndex),
+            columnStartIndex,
+            colSpan
+          )
+        );
+      }
       columnStartIndex += col.span;
     });
 
     // add empty column if row incomplete
     if (columnStartIndex < 13) {
-      let span = 13 - columnStartIndex;
-      dataCols.push(renderDataColumn(' ', columnStartIndex, span));
+      let fillSpan = 13 - columnStartIndex;
+      dataCols.push(renderDataColumn(' ', columnStartIndex, fillSpan));
     }
+
+    // add the action column
+    dataCols.push(<ActionColumn idx={idx} />);
 
     return dataCols;
   };
