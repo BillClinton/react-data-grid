@@ -7,7 +7,6 @@ import {
 } from '../actions/types';
 
 export default (state = {}, action) => {
-  console.log('reducer!!!!', action.payload);
   switch (action.type) {
     case CREATE_USER: {
       return {

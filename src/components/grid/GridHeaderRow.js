@@ -24,7 +24,6 @@ const GridHeaderRow = () => {
 
     // add columns and increment starting index by the span
     columns.forEach(col => {
-      console.log('info', col.text, columnStartIndex, col.span);
       if (columnStartIndex < 13) {
         let colSpan = col.span;
 
@@ -33,16 +32,12 @@ const GridHeaderRow = () => {
           colSpan = 13 - columnStartIndex;
         }
 
-        console.log(colSpan);
-
         headerCols.push(
           renderHeaderColumn(col.text, columnStartIndex, colSpan)
         );
         columnStartIndex += colSpan;
       }
     });
-
-    console.log('index', columnStartIndex);
 
     // add empty column if row incomplete
     if (columnStartIndex < 13) {
