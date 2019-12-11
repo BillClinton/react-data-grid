@@ -1,7 +1,5 @@
 @import './_variables';
 
-$headerBg: #eee;
-
 $gridMarginX: 12px;
 $gridMarginY: 20px;
 $gridHeaderHeight: 32px;
@@ -22,24 +20,50 @@ $gridBodyHeight: calc(
 
   div.gridHeader {
     display: grid;
-    height: $gridHeaderHeight;
-    grid-template-columns: repeat(12, 1fr [col-start]);
+    height: $gridHeaderHeight + 2px;
+    grid-template-columns: repeat(12, 1fr [col-start]) 40px;
+    // border: 1px solid blue;
+    min-height: 0; /* NEW */
+    min-width: 0; /* NEW; needed for Firefox */
 
     div.gridHeaderCell {
       box-sizing: border-box;
       padding: 6px 6px;
-      background-color: $headerBg;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      background-color: $grid-frame-color;
       background-image: linear-gradient(
         to bottom,
         rgba(255, 255, 255, 0.3),
         rgba(255, 255, 255, 0)
       );
+      min-width: 0; /* NEW; needed for Firefox */
+    }
+
+    div.refreshButton {
+      background-color: $grid-frame-color;
+      display: block;
+      color: darken($grid-frame-color, 10%);
+
+      &:hover {
+        color: darken($grid-frame-color, 20%);
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+        margin: 6px 0 0 4px;
+      }
+      svg.rotate {
+        animation: rotation 2s infinite linear;
+        color: darken($grid-frame-color, 20%);
+      }
     }
   }
 
   div.gridFooter {
     height: $gridFooterHeight;
-    background-color: $headerBg;
+    background-color: $grid-frame-color;
     background-image: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 0.3),
@@ -53,11 +77,9 @@ $gridBodyHeight: calc(
     flex-direction: column;
     overflow: hidden;
 
-    //align-items: stretch;
-
     div.card {
       display: block;
-      background-color: $headerBg;
+      background-color: $grid-frame-color;
       background-image: linear-gradient(
         to bottom,
         rgba(255, 255, 255, 0),
@@ -65,16 +87,17 @@ $gridBodyHeight: calc(
       );
       position: relative;
 
+      // Card close icon
       div.close {
         position: absolute;
         top: 0.5em;
         right: 0.5em;
         width: 24px;
         height: 24px;
-        color: darken($headerBg, 10%);
+        color: darken($grid-frame-color, 10%);
 
         &:hover {
-          color: darken($headerBg, 20%);
+          color: darken($grid-frame-color, 20%);
         }
       }
     }
@@ -98,7 +121,8 @@ $gridBodyHeight: calc(
 
       div.gridData {
         display: grid;
-        grid-template-columns: repeat(12, 1fr [col-start]);
+        grid-template-columns: repeat(12, 1fr [col-start]) 20px;
+        overflow: hidden;
 
         div.gridDataCell {
           background-color: #fff;
@@ -109,7 +133,7 @@ $gridBodyHeight: calc(
         }
 
         div.colSelected {
-          background-color: bisque;
+          background-color: #c2daf0;
         }
       }
     }
@@ -185,5 +209,14 @@ $gridBodyHeight: calc(
   }
   .colSpan11 {
     grid-column-end: span 11;
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
   }
 }

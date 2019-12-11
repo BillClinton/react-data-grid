@@ -1,0 +1,51 @@
+.infoCardWrap {
+  margin: 12px 12px;
+
+  .cardHeader {
+    font-size: 1.2em;
+  }
+
+  .infoCard {
+    font-size: 0.8em;
+    display: flex;
+    justify-content: flex-start;
+
+    .userSection {
+      margin: 0;
+      display: grid;
+      grid-template-columns: 72px auto;
+
+      h2 {
+        grid-column: span 2;
+        margin: 0;
+        margin-bottom: 0.4em;
+        font-size: 1em;
+      }
+
+      // labels
+      div:nth-child(even) {
+        text-align: right;
+        padding-right: 4px;
+        opacity: 0.6;
+      }
+    }
+    .addressSection {
+      margin: 0 3em;
+
+      h2 {
+        margin: 0;
+        margin-bottom: 0.4em;
+        font-size: 1em;
+      }
+    }
+    .companySection {
+      margin: 0 1em;
+
+      h2 {
+        margin: 0;
+        margin-bottom: 0.4em;
+        font-size: 1em;
+      }
+    }
+  }
+}
