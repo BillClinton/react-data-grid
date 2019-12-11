@@ -1,0 +1,87 @@
+@import './_variables';
+
+div.actions {
+  position: relative;
+
+  // vertical ellipsis icon
+  svg.open {
+    position: absolute;
+    top: 0.6em;
+    left: 0.2em;
+    opacity: 0.4;
+    width: 14px;
+    height: 14px;
+  }
+
+  .bar {
+    height: 32px;
+    position: absolute;
+    top: 0;
+    left: 40px;
+    width: 188px;
+    padding: 0 6px;
+    border-radius: 0.5em 0 0 0.5em;
+    background-color: $grid-frame-color;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0)
+    );
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+      0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    overflow: hidden;
+    transition: all 400ms;
+    transform-origin: 190px center;
+    justify-content: space-between;
+    align-items: center;
+
+    div.buttonWrap {
+      height: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 6px;
+      padding-right: 36px;
+
+      button {
+        position: relative;
+        text-align: left;
+        padding-left: 28px;
+        height: 24px;
+
+        svg {
+          position: absolute;
+          top: 0;
+          left: 0.2em;
+          opacity: 0.2;
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    // Card close icon
+    div.actionBarClose {
+      position: absolute;
+      top: 4px;
+      right: 8px;
+      display: block;
+      width: 24px;
+      height: 24px;
+      color: darken($grid-frame-color, 10%);
+
+      &:hover {
+        color: darken($grid-frame-color, 20%);
+      }
+    }
+  }
+
+  .barClosed {
+    left: 40px;
+  }
+
+  .barOpen {
+    left: -180px;
+    width: 188px;
+  }
+}
