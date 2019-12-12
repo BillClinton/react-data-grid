@@ -22,7 +22,7 @@ export default (state = {}, action) => {
     case UPDATE_USER: {
       const users = state.users;
       const user = action.payload;
-      const index = users.findIndex(item => item._id === user._id);
+      const index = users.findIndex(item => item.id === user.id);
 
       if (~index) {
         users[index] = user;
