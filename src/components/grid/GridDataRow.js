@@ -3,12 +3,17 @@ import { GridContext } from './DataGrid';
 import ActionColumn from './ActionColumn';
 
 const GridDataRow = ({ rec, idx }) => {
-  const { columns, styles, selectedIndex, setSelectedIndex } = useContext(
-    GridContext
-  );
+  const {
+    columns,
+    styles,
+    selectedIndex,
+    setSelectedIndex,
+    setEditIndex
+  } = useContext(GridContext);
 
   const onCellSelected = () => {
     setSelectedIndex(idx !== selectedIndex ? idx : -1);
+    setEditIndex(-1);
   };
 
   const renderDataColumn = (text, start, span) => {
@@ -23,6 +28,7 @@ const GridDataRow = ({ rec, idx }) => {
 
     return (
       <div
+        id={`${idx}-${start}`}
         key={`${idx}-${start}`}
         onClick={onCellSelected}
         className={cellStyles.join(' ')}

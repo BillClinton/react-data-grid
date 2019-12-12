@@ -7,7 +7,9 @@ import { GridContext } from './DataGrid';
 import styles from './sass/ActionColumn.module.scss';
 
 const ActionColumn = ({ idx }) => {
-  const { store, selectedIndex, setSelectedIndex } = useContext(GridContext);
+  const { store, selectedIndex, setSelectedIndex, setEditIndex } = useContext(
+    GridContext
+  );
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -17,8 +19,9 @@ const ActionColumn = ({ idx }) => {
   }, [selectedIndex, idx]);
 
   const onOpenIconClick = () => {
+    setSelectedIndex(idx);
+    setEditIndex(-1);
     if (!open) {
-      setSelectedIndex(idx);
       setOpen(true);
     }
   };
@@ -26,11 +29,18 @@ const ActionColumn = ({ idx }) => {
   const onCloseIconClick = () => {
     setOpen(false);
     setSelectedIndex(-1);
+    //    setEditIndex(-1);
   };
 
   const onDeleteClick = () => {
     store.destroy(idx);
     setSelectedIndex(-1);
+  };
+
+  const onEditClick = () => {
+    setSelectedIndex(idx);
+    setEditIndex(idx);
+    setOpen(false);
   };
 
   const barStyles = [styles.bar];
@@ -41,7 +51,7 @@ const ActionColumn = ({ idx }) => {
       <ActionsIcon className={styles.open} onClick={onOpenIconClick} />
       <div className={barStyles.join(' ')}>
         <div className={styles.buttonWrap}>
-          <button className={styles.edit}>
+          <button className={styles.edit} onClick={onEditClick}>
             <EditIcon />
             edit
           </button>

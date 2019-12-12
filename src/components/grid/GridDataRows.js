@@ -3,7 +3,7 @@ import { GridContext } from './DataGrid';
 import GridDataRow from './GridDataRow';
 
 const GridDataRows = () => {
-  const { store, styles, selectedIndex } = useContext(GridContext);
+  const { store, styles, selectedIndex, addRef } = useContext(GridContext);
   const wrapStyles = [styles.gridDataWrap];
 
   if (selectedIndex >= 0) {
@@ -11,7 +11,6 @@ const GridDataRows = () => {
   }
 
   return store.data.length ? (
-    // return false ? (
     <div className={wrapStyles.join(' ')}>
       <div className={styles.gridData}>
         {store.data.map((rec, idx) => {

@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 import Header from './GridHeaderRow';
 import DataRows from './GridDataRows';
@@ -7,10 +7,30 @@ import GridCard from './GridCard';
 
 export const GridContext = createContext();
 
-const DataGrid = ({ store, columns, children }) => {
+const DataGrid = ({ store, columns, infoCard, editForm }) => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [editIndex, setEditIndex] = useState(-1);
+  const [refs, setRefs] = useState({});
 
-  const config = { store, columns, styles, selectedIndex, setSelectedIndex };
+  useEffect(() => {
+    if (selectedIndex > 0) {
+      const el = document.getElementById(`${selectedIndex}-1`);
+      setTimeout(() => {
+        el.scrollIntoView();
+      }, 400);
+    }
+  }, [selectedIndex]);
+
+  const config = {
+    store,
+    columns,
+    styles,
+    selectedIndex,
+    setSelectedIndex,
+    editIndex,
+    setEditIndex,
+    refs
+  };
 
   return (
     <GridContext.Provider value={config}>
@@ -18,7 +38,7 @@ const DataGrid = ({ store, columns, children }) => {
         <Header columns={columns} />
         <div className={styles.gridBody}>
           <DataRows store={store} value={config} />
-          <GridCard content={children} />
+          <GridCard infoCard={infoCard} editForm={editForm} />
         </div>
         <div className={styles.gridFooter} />
       </div>

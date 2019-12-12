@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { UserStore } from '../contexts/UserStore';
 import DataGrid from './grid/DataGrid';
 import UserCard from './UserCard';
+import EditForm from './EditForm';
 
 const UserGrid = () => {
   const { store } = useContext(UserStore);
@@ -13,26 +14,29 @@ const UserGrid = () => {
       span: 3
     },
     {
+      text: 'Phone',
+      dataIndex: 'phone',
+      span: 3
+    },
+    {
       text: 'Email',
       dataIndex: 'email',
-      span: 4
+      span: 3
     },
     {
       text: 'Company',
       dataIndex: 'company.name',
       span: 3
-    },
-    {
-      text: 'City',
-      dataIndex: 'address.city',
-      span: 1
     }
   ];
 
   return (
-    <DataGrid store={store} columns={columns}>
-      <UserCard />
-    </DataGrid>
+    <DataGrid
+      store={store}
+      columns={columns}
+      infoCard={<UserCard />}
+      editForm={<EditForm />}
+    ></DataGrid>
   );
 };
 
