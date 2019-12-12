@@ -9,6 +9,7 @@ import {
 } from './types';
 
 export const createUser = (formValues, dispatch) => {
+  setLoading(true, dispatch);
   const sendData = async () => await API.post('/users', { ...formValues });
 
   sendData()
@@ -17,6 +18,7 @@ export const createUser = (formValues, dispatch) => {
         type: CREATE_USER,
         payload: response.data
       });
+      setLoading(false, dispatch);
     })
     .catch(e => {
       console.log(e);
@@ -37,6 +39,7 @@ export const readUsers = dispatch => {
 };
 
 export const updateUser = (id, formValues, dispatch) => {
+  setLoading(true, dispatch);
   const updateData = async () =>
     await API.patch(`/users/${id}`, { ...formValues });
 
@@ -46,6 +49,7 @@ export const updateUser = (id, formValues, dispatch) => {
         type: UPDATE_USER,
         payload: response.data
       });
+      setLoading(false, dispatch);
     })
     .catch(e => {
       console.log(e);
