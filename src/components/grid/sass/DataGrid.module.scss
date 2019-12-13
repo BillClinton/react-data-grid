@@ -23,7 +23,7 @@
       text-overflow: ellipsis;
       background-color: $grid-frame-color;
       background-image: linear-gradient(
-        to bottom,
+        to top,
         rgba(255, 255, 255, 0.3),
         rgba(255, 255, 255, 0)
       );
@@ -121,6 +121,27 @@
           text-overflow: ellipsis;
           white-space: nowrap;
         }
+
+        @mixin stripeRowsOdd {
+          @for $i from 1 through $columns + 1 {
+            $columnsX2: ($columns + 1) * 2; // add 1 for action column
+            div:nth-child(#{$columnsX2}n + #{$i}) {
+              background-color: #fafafa;
+            }
+          }
+        }
+
+        @mixin stripeRowsEven {
+          @for $i from 1 through $columns + 1 {
+            $increment: $columns + $i + 1;
+            $columnsX2: ($columns + 1) * 2; // add 1 for action column
+            div:nth-child(#{$columnsX2}n + #{$increment}) {
+              background-color: #fafafa;
+            }
+          }
+        }
+
+        @include stripeRowsEven;
 
         div.colSelected {
           background-color: #c2daf0;

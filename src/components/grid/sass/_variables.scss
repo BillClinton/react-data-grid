@@ -15,3 +15,6 @@ $gridHeight: calc(#{$content-height} - #{$gridMarginHeight} - 4px);
 $gridBodyHeight: calc(
   #{$gridHeight} - #{$gridHeaderHeight} - #{$gridFooterHeight}
 );
+
+// Set the number of visible data columns to stripe rows
+$columns: 4;
