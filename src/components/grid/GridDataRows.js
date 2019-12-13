@@ -3,7 +3,7 @@ import { GridContext } from './DataGrid';
 import GridDataRow from './GridDataRow';
 
 const GridDataRows = () => {
-  const { store, styles, selectedIndex, addRef } = useContext(GridContext);
+  const { store, styles, selectedIndex } = useContext(GridContext);
   const wrapStyles = [styles.gridDataWrap];
 
   if (selectedIndex >= 0) {
