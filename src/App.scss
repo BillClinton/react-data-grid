@@ -1,0 +1,24 @@
+.repo-link {
+  font-size: 0.8em;
+  width: 100%;
+  max-width: 1280px;
+  margin: 8px auto 0;
+  text-align: right;
+  padding-right: 1em;
+
+  a:link {
+    text-decoration: none;
+  }
+
+  a:visited {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a:active {
+    text-decoration: underline;
+  }
+}
