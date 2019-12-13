@@ -7,14 +7,14 @@ import './Form.scss';
 
 const UserEditForm = () => {
   const { store } = useContext(UserStore);
-  const { editIndex, setEditIndex } = useContext(GridContext);
+  const { editIndex, setEditIndex, updateRecord } = useContext(GridContext);
 
   let rec = store.data[editIndex];
   const form = useForm({ defaultValues: rec });
 
   const onSubmit = (data, e) => {
     e.preventDefault();
-    store.update(rec.id, data);
+    updateRecord(rec.id, data);
   };
 
   const onCancelClick = () => {

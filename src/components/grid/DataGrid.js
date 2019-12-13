@@ -10,7 +10,6 @@ export const GridContext = createContext();
 const DataGrid = ({ store, columns, infoCard, editForm }) => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [editIndex, setEditIndex] = useState(-1);
-  const [refs, setRefs] = useState({});
 
   useEffect(() => {
     if (selectedIndex > 0) {
@@ -21,6 +20,11 @@ const DataGrid = ({ store, columns, infoCard, editForm }) => {
     }
   }, [selectedIndex]);
 
+  const updateRecord = (id, data) => {
+    store.update(id, data);
+    setSelectedIndex(-1);
+  };
+
   const config = {
     store,
     columns,
@@ -29,7 +33,7 @@ const DataGrid = ({ store, columns, infoCard, editForm }) => {
     setSelectedIndex,
     editIndex,
     setEditIndex,
-    refs
+    updateRecord
   };
 
   return (
