@@ -2,11 +2,11 @@
 
 A scrolling data grid built with React Hooks and Context API.
 
+View demo using data from [JSONPlaceholder API](https://jsonplaceholder.typicode.com/) available here: https://billclinton.github.io/react-data-grid/
+
 Grid files are located in [src/components/grid](https://github.com/BillClinton/react-data-grid/tree/master/src/components/grid).
 
 This is not intended as a basic template rather than a reusable module to handle all cases.
-
-demo using [JSONPlaceholder API](https://jsonplaceholder.typicode.com/) available here: https://billclinton.github.io/react-data-grid/
 
 ### props
 
