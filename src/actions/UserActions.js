@@ -9,7 +9,6 @@ import {
 } from './types';
 
 export const createUser = (formValues, dispatch) => {
-  setLoading(true, dispatch);
   const sendData = async () => await API.post('/users', { ...formValues });
 
   sendData()
@@ -29,13 +28,17 @@ export const readUsers = dispatch => {
   setLoading(true, dispatch);
   const getData = async () => await API.get('/users');
 
-  getData().then(response => {
-    dispatch({
-      type: READ_USERS,
-      payload: response.data
+  getData()
+    .then(response => {
+      dispatch({
+        type: READ_USERS,
+        payload: response.data
+      });
+      setLoading(false, dispatch);
+    })
+    .catch(e => {
+      console.log(e);
     });
-    setLoading(false, dispatch);
-  });
 };
 
 export const updateUser = (id, formValues, dispatch) => {
@@ -60,13 +63,17 @@ export const destroyUser = (id, dispatch) => {
   setLoading(true, dispatch);
   const deleteData = async () => await API.delete(`/users/${id}`);
 
-  deleteData().then(response => {
-    dispatch({
-      type: DESTROY_USER,
-      payload: id
+  deleteData()
+    .then(() => {
+      dispatch({
+        type: DESTROY_USER,
+        payload: id
+      });
+      setLoading(false, dispatch);
+    })
+    .catch(e => {
+      console.log(e);
     });
-    setLoading(false, dispatch);
-  });
 };
 
 export const setLoading = (loading, dispatch) => {
