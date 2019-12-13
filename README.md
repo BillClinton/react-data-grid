@@ -6,7 +6,7 @@ Grid files are located in [src/components/grid](https://github.com/BillClinton/r
 
 This is not intended as a basic template rather than a reusable module to handle all cases.
 
-demo using [JSONPlaceholder] API(https://jsonplaceholder.typicode.com/): https://billclinton.github.io/react-data-grid/
+demo using [JSONPlaceholder API](https://jsonplaceholder.typicode.com/) available here: https://billclinton.github.io/react-data-grid/
 
 ### props
 
