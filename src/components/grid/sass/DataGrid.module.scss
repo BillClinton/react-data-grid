@@ -1,30 +1,20 @@
 @import './_variables';
 
-$gridMarginX: 12px;
-$gridMarginY: 20px;
-$gridHeaderHeight: 32px;
-$gridFooterHeight: 12px;
-$gridMarginHeight: $gridMarginY * 2;
-$gridHeight: calc(#{$content-height} - #{$gridMarginHeight} - 4px);
-$gridBodyHeight: calc(
-  #{$gridHeight} - #{$gridHeaderHeight} - #{$gridFooterHeight}
-);
-
 .grid {
-  margin: $gridMarginY $gridMarginX;
+  margin: $gridMarginTop auto $gridMarginBottom;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
     0 1px 3px 1px rgba(60, 64, 67, 0.15);
   max-height: $gridHeight;
+  max-width: $max-content-width;
 
   div.gridHeader {
     display: grid;
     height: $gridHeaderHeight + 2px;
     grid-template-columns: repeat(12, 1fr [col-start]) 40px;
-    // border: 1px solid blue;
-    min-height: 0; /* NEW */
-    min-width: 0; /* NEW; needed for Firefox */
+    min-height: 0;
+    min-width: 0; /* needed for Firefox */
 
     div.gridHeaderCell {
       box-sizing: border-box;

@@ -1,5 +1,17 @@
 // Page dimensions
 $header-height: 0px; // Set this to allow space for a page header
-$content-height: calc(100vh - #{$header-height});
+$footer-height: 40px; // Set this to allow space for a page footer
+$content-height: calc(100vh - #{$header-height} - #{$footer-height});
 $max-content-width: 1280px;
 $grid-frame-color: #eee;
+
+// Grid dimensions
+$gridMarginTop: 20px;
+$gridMarginBottom: 6px;
+$gridHeaderHeight: 32px;
+$gridFooterHeight: 12px;
+$gridMarginHeight: $gridMarginTop + $gridMarginBottom;
+$gridHeight: calc(#{$content-height} - #{$gridMarginHeight} - 4px);
+$gridBodyHeight: calc(
+  #{$gridHeight} - #{$gridHeaderHeight} - #{$gridFooterHeight}
+);
